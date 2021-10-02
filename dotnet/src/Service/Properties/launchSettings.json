@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Hack.Service.RedisDb": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": false,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:9200",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DEV",
+        "RedisConnection" : "192.168.118.129"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mongo-app
+  labels:
+    tier: frontend
+spec:
+  containers:
+  - name: mongo-app
+    image: devignitelab.jfrog.io/labdocker/mongo-app:v1
+    env:
+      - name: ASPNETCORE_ENVIRONMENT
+        value: DEV
+      - name: Mongodb_Connection
+        value: "mongodb://192.168.118.129:27017"

@@ -1,0 +1,35 @@
+resources:
+  - name: hack_mongo_repo
+    type: GitRepo
+    configuration:
+      gitProvider: Github # <-- replace with your integration
+      path: nikx-gupta/hack-mongodb # <-- replace with your repository name
+      branches:
+        include: master
+pipelines:
+  - name: pipeline_mongodb
+    steps:
+      - name: step_bash
+        type: Bash
+        execution:
+          onExecute:
+            - git submodule update --init --recursive
+      - name: step_dotnet
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: dotnet
+          dockerFileName: Dockerfile
+          dockerImageName: devignitelab.jfrog.io/hackmongo/dotnet
+          dockerImageTag: latest
+          inputResources:
+            - name: hack_mongo_repo
+          integrations:
+            - name: DockerRegistry
+      - name: docker_push
+        type: DockerPush
+        configuration:
+          targetRepository: labdocker
+          integrations:
+            - name: DockerRegistry # <-- replace with your artifactory integration
+          inputSteps:
+            - name: step_dotnet

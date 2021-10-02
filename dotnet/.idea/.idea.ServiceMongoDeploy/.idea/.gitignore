@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.ServiceMongoDeploy.iml
+# Datasource local storage ignored files
+/../../../../../../../../:\src\nikx-gupta\hack-mongodb\dotnet\.idea\.idea.ServiceMongoDeploy\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
